@@ -27,11 +27,11 @@ export default function Home() {
             <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
             <button className="btn btn-primary " type="button">Search</button>
+            <button className="btn btn-success mx-2 " type="button">Admin</button>
             </form>
         </div>
     </nav>
-    <div className="container-fluid row gap-3 align d-flex justify-content-center" style={{backgroundColor: "gray"}}>
-      <p>halo tuan</p>
+    <div className="container-fluid row gap-3 align d-flex justify-content-center pt-5" style={{backgroundColor: "gray"}}>
       {
         products.map(item => (
         <div key={item.id} className="card d-flex flex-row p-3" style={{width: "30rem"}}>
