@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 export default function Card (props){
     return(
         <>
-         <div key={props.id} className="card d-flex flex-column flex-md-row  align-items-center p-3" style={{width: "30rem"}}>
+         <div key={props.id} className="card d-flex flex-column flex-md-row  align-items-center p-3 shadow" style={{width: "30rem"}}>
           <img src={props.image} alt={"dummy"} className="img-thumbnail shadow" style={{width: "200px"}} />
           <div className="card-body">
             <h5 className="card-title overflow-hidden" style={{height: "50px"}} >{props.title}</h5>

@@ -3,14 +3,18 @@ import { useEffect, useState } from "react";
 
 export function useFetchingProduct(){
     const [products, setProducts] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     const doFetchProduct = async () => {
+        setIsLoading(true)
         try {
             const fetching = await fetch("https://fakestoreapi.in/api/products")
             const response = await fetching.json()
             setProducts(response.products)
+            setIsLoading(false)
         } catch (error) {
             console.error(error.message)
+            setIsLoading(false)
         }
     }
 
@@ -18,5 +22,5 @@ export function useFetchingProduct(){
         doFetchProduct()
     },[])
 
-    return {products}
+    return {products,isLoading}
 }
