@@ -6,7 +6,7 @@ import Card from "@/components/card";
 export default function Home() {
   const {products} = useFetchingProduct()
   return (
-    <>
+    <div className="w-100">
     <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor: "#578FCA"}} data-bs-theme="light">
         <div className="container-fluid px-5">
             <a className="navbar-brand text-black fw-bold fs-2">Toko Shop</a>
@@ -31,6 +31,6 @@ export default function Home() {
         ))
       }
     </div>
-    </>
+    </div>
   );
 }
