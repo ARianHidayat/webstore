@@ -8,12 +8,14 @@ export default function Home() {
   return (
     <div className="w-100">
     <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor: "#578FCA"}} data-bs-theme="light">
-        <div className="container-fluid px-5">
+        <div className="container-fluid px-5 d-flex flex-column flex-md-row">
             <a className="navbar-brand text-black fw-bold fs-2">Toko Shop</a>
-            <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button className="btn btn-primary " type="button">Search</button>
-            <button className="btn btn-success mx-2 " type="button">Admin</button>
+            <form className="d-flex flex-column flex-sm-row align-items-center" role="search">
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+              <div className="d-flex flex-row mt-2 mt-md-0">
+              <button className="btn btn-primary " type="button">Search</button>
+              <button className="btn btn-success mx-2 " type="button">Admin</button>
+              </div>
             </form>
         </div>
     </nav>
