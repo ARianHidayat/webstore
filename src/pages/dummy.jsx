@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css"
+import Card from "@/components/card"
 
 export default function dummy(){
     return(
@@ -13,6 +14,7 @@ export default function dummy(){
         </div>
         </nav>
         <p>This is Dummy page</p>
+        <Card/>
         </>
     )
 }
