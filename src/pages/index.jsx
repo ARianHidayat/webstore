@@ -13,7 +13,7 @@ export default function Home() {
           products.map(item => (
             <Card 
             key={item.id}
-            image={item.image}
+            image={item.thumbnail}
             title={item.title}
             description={item.description}
             price={item.price}
@@ -21,6 +21,14 @@ export default function Home() {
           />
           ))
         }
+      </div>
+      <div className="d-flex flex-row justify-content-center pt-5 gap-2">
+        <button type="button" className="btn btn-light">Prev</button>
+        <button type="button" className="btn btn-light">1</button>
+        <button type="button" className="btn btn-light">2</button>
+        <button type="button" className="btn btn-light">3</button>
+        <button type="button" className="btn btn-light">4</button>
+        <button type="button" className="btn btn-light">Next</button>
       </div>
     </div>
   );
