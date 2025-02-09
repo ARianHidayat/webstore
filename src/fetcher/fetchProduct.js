@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 
 
-export function useFetchingProduct(){
+export function useFetchingProduct({pageNumber}){
     const [products, setProducts] = useState([])
+    const [totalProducts, setTotalProducts] = useState(0)
     const [isLoading, setIsLoading] = useState(false)
+    const [limit, setLimit] = useState(10)
+    const [numberSelected, setNumberSelected] = useState(pageNumber) // 1
+    const paginationFormula = (pageNumber - 1) * limit
 
     const doFetchProduct = async () => {
         setIsLoading(true)
         try {
-            const fetching = await fetch("https://dummyjson.com/products?limit=10")
+            const fetching = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${paginationFormula}`)
             const response = await fetching.json()
             setProducts(response.products)
+            setTotalProducts(response.total)
             setIsLoading(false)
         } catch (error) {
             console.error(error.message)
@@ -20,7 +25,7 @@ export function useFetchingProduct(){
 
     useEffect(()=>{
         doFetchProduct()
-    },[])
+    },[pageNumber])
 
-    return {products,isLoading}
+    return {products,isLoading,totalProducts,limit}
 }
