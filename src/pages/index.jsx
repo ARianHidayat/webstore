@@ -26,8 +26,8 @@ export default function Home() {
 
   // console.log(Array.from(Array(totalPages), (_,index) => index + 1))
   return (
-    <div className="w-100 container-fluid">
-      <div className="row gap-3 align d-flex justify-content-center pt-3 h-100" >
+    <div className="container-fluid">
+      <div className="row gap-3 align d-flex justify-content-center pt-3 vw-100" >
         { isLoading ? <Loading/> :
           products.map(item => (
             <Card 
@@ -41,16 +41,15 @@ export default function Home() {
           ))
         }
       </div>
-      <div className="d-flex flex-row justify-content-center pt-5 gap-2">
+      <div className="d-flex flex-row justify-content-center pt-5 mb-3 gap-2" style={{height: "90px"}}>
         <button type="button" className="btn btn-light"
         onClick={()=>{handlePageChange(1)}}
         disabled={pageNumber === 1}
-        >first page</button>
-      <button type="button" className="btn btn-light"
-      onClick={()=>{setPageNumber(pageNumber - 1)}}
-      disabled={pageNumber === 1}
-      >Prev</button>
-      <p className={`${pageNumber === 1 ? "d-none" : "d-block"}`}>. . .</p>
+        >first</button>
+        <button type="button" className="btn btn-light"
+        onClick={()=>{setPageNumber(pageNumber - 1)}}
+        disabled={pageNumber === 1}
+        >Prev</button>
         {
           Array.from(Array(endPage - startPage + 1), (_,index) => startPage + index).map(item => 
             <button key={item} type="button" 
@@ -59,7 +58,6 @@ export default function Home() {
             >{item}</button>
           )
         }
-        <p className={`${pageNumber === totalPages ? "d-none" : "d-block"}`}>. . .</p>
         <button type="button" className="btn btn-light"
         onClick={()=>{setPageNumber(pageNumber + 1)}}
         disabled={pageNumber === totalPages}
@@ -67,7 +65,13 @@ export default function Home() {
         <button type="button" className="btn btn-light"
         onClick={()=>{handlePageChange(totalPages)}}
         disabled={pageNumber === totalPages}
-        >last page</button>
+        >last</button>
+      </div>
+      <div>
+        <button type="button" 
+        className="btn btn-success position-fixed bottom-0 end-0 m-4 mb-5"
+        onClick={()=>{window.scrollTo({top: 0})}}
+        >back to top</button>
       </div>
     </div>
   );

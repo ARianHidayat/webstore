@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 export default function Navbar(){
     const router = useRouter()
     return(
-        <nav className="navbar navbar-expand-lg bg-body-tertiary shadow" style={{backgroundColor: "#578FCA"}} data-bs-theme="light">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary shadow" style={{backgroundColor: "#578FCA"}} data-bs-theme="light">
         <div className="container-fluid px-5 d-flex flex-column flex-md-row">
             <a className="navbar-brand text-black fw-bold fs-2">Toko Shop</a>
             <form className="d-flex flex-column flex-sm-row align-items-center" role="search">
