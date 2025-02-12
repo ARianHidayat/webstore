@@ -10,7 +10,7 @@ export default function Card (props){
             <p className="fw-bold">${props.price}</p>
             <div className="d-flex flex-row gap-2 justify-content-end">
               <a href="#" className="btn btn-primary ">click</a>
-              <a href="#" className="btn btn-success ">tekan</a>
+              <a href="#" className="btn btn-success ">Detail</a>
             </div>
           </div>
         </div>
