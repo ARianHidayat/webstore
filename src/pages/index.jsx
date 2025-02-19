@@ -8,11 +8,14 @@ import Navbar from "@/components/navbar"
 
 export default function Home() {
   const [pageNumber, setPageNumber] = useState(1)
-  const {products,isLoading,totalProducts,limit} = useFetchingProduct({pageNumber})
+  const [searchValue, setSearchValue] = useState("")
+  const {products,isLoading,totalProducts,limit} = useFetchingProduct({pageNumber,searchValue})
 
   return (
     <div>
-      <Navbar/>
+      <Navbar
+      setSearchValue={setSearchValue}
+      />
       <div className="container-fluid">
         <div className="row gap-3 align d-flex justify-content-center pt-3 vw-100" >
           { isLoading ? <Loading/> :

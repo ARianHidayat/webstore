@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-export function useFetchingProduct({pageNumber}){
+export function useFetchingProduct({pageNumber,searchValue}){
     const [products, setProducts] = useState([])
     const [totalProducts, setTotalProducts] = useState(0)
     const [isLoading, setIsLoading] = useState(false)
@@ -12,7 +12,7 @@ export function useFetchingProduct({pageNumber}){
     const doFetchProduct = async () => {
         setIsLoading(true)
         try {
-            const fetching = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${paginationFormula}`)
+            const fetching = await fetch(`https://dummyjson.com/products/search?q=${searchValue}&limit=${limit}&skip=${paginationFormula}`)
             const response = await fetching.json()
             setProducts(response.products)
             setTotalProducts(response.total)
@@ -25,7 +25,7 @@ export function useFetchingProduct({pageNumber}){
 
     useEffect(()=>{
         doFetchProduct()
-    },[pageNumber])
+    },[pageNumber,searchValue])
 
-    return {products,isLoading,totalProducts,limit}
+    return {products,isLoading,totalProducts,limit,searchValue}
 }
